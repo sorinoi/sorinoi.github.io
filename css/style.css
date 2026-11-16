@@ -695,3 +695,21 @@ a { color: inherit; }
 @media (prefers-reduced-motion: reduce) {
   .aurora, .floor, .traffic span, .scanline, .building::after { animation: none; }
 }
+
+/* curved text ring around the portrait */
+.hud-text {
+  inset: -11%;
+  width: 122%;
+  height: 122%;
+  overflow: visible;
+  animation: spin 36s linear infinite;
+}
+.hud-text text {
+  font-family: "Exo 2", sans-serif;
+  font-size: 5.6px;
+  font-weight: 600;
+  letter-spacing: .8px;
+  fill: #8ff7ff;
+  filter: drop-shadow(0 0 2px rgba(56, 243, 255, .9));
+}
+[data-theme="light"] .hud-text text { fill: var(--cyan); filter: none; }
