@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sorin | Full Stack Developer</title>
+  <meta name="description" content="Sorin — Full Stack Developer · Web Developer · System Developer · AI Enthusiast">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0b25'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='26' font-weight='700' text-anchor='middle' fill='%2322d3ee'%3E%26lt;/%26gt;%3C/text%3E%3C/svg%3E">
+
+  <!-- Bulma CSS framework (https://bulma.io) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/1.0.2/css/bulma.min.css">
+  <!-- Font Awesome icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800&family=Kaushan+Script&family=Sarabun:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    // apply saved theme before paint
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+  </script>
+</head>
+<body>
+
+  <!-- ===== Background scene ===== -->
+  <div class="scene" aria-hidden="true">
+    <div class="scene-glow"></div>
+    <div class="aurora aurora-1"></div>
+    <div class="aurora aurora-2"></div>
+    <div class="city city-left"></div>
+    <div class="city city-right"></div>
+    <div class="floor"></div>
+    <div class="traffic">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="scanline"></div>
+    <canvas id="particles"></canvas>
+  </div>
+
+  <!-- ===== Navbar ===== -->
+  <header class="nav-wrap">
+    <nav class="navbar glass-nav" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <div class="navbar-item brand">
+          <span class="brand-mark">&lt;/&gt;</span>
+          <span class="brand-name">Sorin</span>
+          <span class="brand-tag is-hidden-mobile">Full Stack Developer</span>
+        </div>
+        <div class="navbar-item nav-toggle-wrap">
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle light / dark theme">
+            <i class="fa-solid fa-sun"></i>
+            <i class="fa-solid fa-moon"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <main id="home" class="hero-main">
+    <p class="tagline is-hidden-touch">Turning ideas<br>into digital<br>solutions</p>
+    <p class="neon-sign is-hidden-touch">Code<br>Build<br>Create</p>
+
+    <section class="orbit-stage" id="orbitStage">
+      <!-- back halves of the rings (behind the portrait) -->
+      <div class="orbit-layer layer-back">
+        <div class="ring-plane" data-orbit="0"><div class="ring ring-outer"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        <div class="ring-plane" data-orbit="1"><div class="ring ring-inner"><i></i><i></i><i></i><i></i></div></div>
+      </div>
+
+      <!-- portrait -->
+      <div class="portrait" id="portrait">
+        <div class="hud hud-1"></div>
+        <div class="hud hud-2"></div>
+        <div class="hud hud-3"></div>
+        <img src="images/profile.jpg" alt="Sorin" class="portrait-img">
+      </div>
+
+      <!-- front halves of the rings (in front of the portrait) -->
+      <div class="orbit-layer layer-front">
+        <div class="ring-plane" data-orbit="0"><div class="ring ring-outer"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        <div class="ring-plane" data-orbit="1"><div class="ring ring-inner"><i></i><i></i><i></i><i></i></div></div>
+      </div>
+
+      <!-- tech icons (positioned by js/main.js) -->
+      <div class="tech-list" id="techList"></div>
+    </section>
+
+    <section class="hero-text has-text-centered">
+      <h1 class="hero-name">Sorin</h1>
+      <h2 class="hero-role">Full Stack Developer</h2>
+      <p class="hero-sub">Web Developer <span>•</span> System Developer <span>•</span> AI Enthusiast</p>
+
+      <div class="buttons is-centered hero-buttons">
+        <a href="#projects" class="button btn-neon">
+          <span class="icon"><i class="fa-solid fa-rocket"></i></span><span>View Projects</span>
+        </a>
+        <a href="https://github.com/sorinoi" target="_blank" rel="noopener" class="button btn-ghost">
+          <span class="icon"><i class="fa-brands fa-github"></i></span><span>My GitHub</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="container stats">
+      <div class="columns is-mobile is-multiline is-variable is-3">
+        <div class="column is-6-mobile is-3-tablet">
+          <div class="stat">
+            <span class="stat-icon"><i class="fa-solid fa-code"></i></span>
+            <div><p class="stat-num">10+</p><p class="stat-label">Years Experience</p></div>
+          </div>
+        </div>
+        <div class="column is-6-mobile is-3-tablet">
+          <div class="stat">
+            <span class="stat-icon"><i class="fa-solid fa-layer-group"></i></span>
+            <div><p class="stat-num">20+</p><p class="stat-label">Projects</p></div>
+          </div>
+        </div>
+        <div class="column is-6-mobile is-3-tablet">
+          <div class="stat">
+            <span class="stat-icon"><i class="fa-solid fa-users"></i></span>
+            <div><p class="stat-num">5+</p><p class="stat-label">Tech Stacks</p></div>
+          </div>
+        </div>
+        <div class="column is-6-mobile is-3-tablet">
+          <div class="stat">
+            <span class="stat-icon is-gold"><i class="fa-regular fa-star"></i></span>
+            <div><p class="stat-num">100%</p><p class="stat-label">Passion for Coding</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

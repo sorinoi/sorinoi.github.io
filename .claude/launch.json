@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "site",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["C:/Users/CDI-WU/AppData/Local/Temp/claude/1ce7d2eed203da9b/9e558ca0-b150-4e9f-8048-0d8b72b6734e/scratchpad/serve.js", "D:/Source/github/sorinoi/sorinoi.github.io", "5500"],
+      "port": 5500
+    }
+  ]
+}
